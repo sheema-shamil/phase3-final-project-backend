@@ -48,3 +48,13 @@ put '/posts/:id' do
     #return the updated post
     return posts[id].to_json
 end
+
+## Destroy Route
+delete '/posts/:id' do
+    # get the id from params
+    id = params["id"].to_i
+    # delete the item
+    post = posts.delete_at(id)
+    # return the deleted item as json
+    return post.to_json
+end
